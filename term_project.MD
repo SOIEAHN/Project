@@ -6,3 +6,5 @@ url = "http://jtbc.joins.com/schedule/20181116"
 r = requests.get(url)
 r.encoding = 'utf8'
 data = str(r.text)
+
+이러면 좋을 것 같애요
