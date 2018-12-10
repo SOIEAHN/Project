@@ -2,25 +2,25 @@
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-html = urlopen('http://jtbc.joins.com/schedule/20181116')
+
+i = str(input())
+url = 'http://jtbc.joins.com/schedule/'+i
+
+html = urlopen(url)
 bsObj = BeautifulSoup(html, "html.parser")
 nameList = bsObj.findAll("strong", {"class":"title"})
+b=[]
+i=0
 for name in nameList:
     words = name.get_text()
-    words = words.replace(' ', '')
-    words = words.replace('3회', '')
-    words = words.replace('86회', '')
-    words = words.replace('362회', '')
-    words = words.replace('1회', '')
-    words = words.replace('105회', '')
-    words = words.replace('13회', '')
-    words = words.replace('14회', '')
-    words = words.replace('6회', '')
-    words = words.replace('29회', '')
-    words = words.replace('20회', '')
-    words = words.replace('15회', '')
-    words = words.replace('\n', '')
-    words = words.replace('\r', '')
+    words = words.replace(' ','')
     
     words = words.split()
-    print(words)
+    #print(words)
+    #if words[1] in words:
+        #del words[1]
+    
+    b.append(words[0])
+    
+print(b)
+print(b[1])
